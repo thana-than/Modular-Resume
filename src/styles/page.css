@@ -1,0 +1,53 @@
+#root {
+    margin: auto;
+}
+
+.page {
+    font-family: 'Segoe UI';
+    background-color: white;
+    width: 8.5in;
+    height: 11in;
+    margin: auto;
+    padding: .25in .5in;
+}
+
+.element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resume_header {
+    border-bottom: .2em solid black;
+}
+
+.resume_side {
+    width: 28%;
+}
+
+.resume_main {
+    width: 64%;
+}
+
+.section {
+    width: 100%;
+}
+
+.section_header {
+    height: 33pt;
+    align-items: baseline;
+}
+
+.line {
+    border-bottom: .2em solid #aaaaaa;
+    margin-left: 1em;
+    width: 100%;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: uppercase;
+}
