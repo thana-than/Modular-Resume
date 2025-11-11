@@ -21,12 +21,22 @@
     border-bottom: .2em solid black;
 }
 
+.resume_body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .resume_side {
     width: 28%;
 }
 
 .resume_main {
     width: 64%;
+}
+
+.section_group {
+    display: block;
 }
 
 .section {
@@ -42,6 +52,12 @@
     border-bottom: .2em solid #aaaaaa;
     margin-left: 1em;
     width: 100%;
+}
+
+.module {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-left: .5em;
 }
 
 h1 {

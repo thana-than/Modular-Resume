@@ -1,0 +1,54 @@
+{
+    "name": "Full Name",
+    "subtitle": "Job Subtitle",
+    "contact": [
+        "email",
+        "phone",
+        "website"
+    ],
+    "main": [
+        {
+            "type": "section",
+            "title": "Experience",
+            "modules": [
+                {
+                    "type": "module",
+                    "title": "Job Title at Company",
+                    "content": "This is a module content"
+                },
+                {
+                    "type": "module",
+                    "title": "Another Job Title at Another Company",
+                    "content": "This is another module content"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "Education",
+            "modules": [
+                {
+                    "type": "module",
+                    "title": "Degree at University",
+                    "content": "This is education module content"
+                }
+            ]
+        }
+    ],
+    "sub": [
+        {
+            "type": "section",
+            "title": "Skills",
+            "modules": [
+                {
+                    "type": "module",
+                    "content": [
+                        "Javascript",
+                        "React",
+                        "CSS"
+                    ]
+                }
+            ]
+        }
+    ]
+}
