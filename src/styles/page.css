@@ -18,10 +18,30 @@
     box-sizing: border-box;
 }
 
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.module .content a {
+    font-style: italic;
+    color: var(--secondary-color)
+}
+
 .element {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.contact .item {
+    font-size: 12pt;
+    text-align: right;
+    font-weight: bold;
+}
+
+.contact .item:last-child {
+    margin-bottom: 0;
 }
 
 .resume_header {
@@ -43,6 +63,10 @@
     width: 28%;
 }
 
+.resume_side .content {
+    margin-right: -.5em;
+}
+
 .resume_main {
     width: 64%;
 }
@@ -55,7 +79,7 @@
     width: 100%;
 }
 
-.section_header {
+.section .header {
     height: 33pt;
     align-items: baseline;
 }
@@ -69,7 +93,7 @@
 .module {
     margin-top: .5em;
     margin-bottom: .5em;
-    margin-left: 1.5em;
+    margin-left: 1.2em;
     position: relative;
 }
 
@@ -78,23 +102,28 @@ h1 {
     font-size: 28pt;
     color: var(--secondary-color);
     font-weight: bold;
+    margin: 0;
+    margin-top: .5em;
 }
 
 h2 {
     color: var(--primary-color);
     font-size: 18pt;
     font-weight: normal;
+    margin: 0;
+    margin-bottom: 1em;
 }
 
 h3 {
     text-transform: uppercase;
     color: var(--secondary-color);
     font-weight: bold;
-    font-size: 20pt;
+    font-size: 18pt;
+    margin: .5em 0 0 0;
 }
 
 h4 {
-    margin: 1em 0 .25em;
+    margin: 0 -.25em .25em;
     color: var(--primary-color);
     font-size: 13.5pt;
     font-style: italic;
@@ -102,7 +131,7 @@ h4 {
 }
 
 h5 {
-    margin: 1em 0 .25em;
+    margin: 0 0 .25em;
     color: var(--primary-color);
     display: inline;
     font-size: 13.5pt;
@@ -111,7 +140,43 @@ h5 {
     top: 0;
 }
 
-p {
-    margin: 0;
+
+.section_objective .content {
+    font-weight: bold;
+}
+
+.section_achievements .content {
+    display: flex;
+    flex-direction: row;
+}
+
+.section_achievements .module .content {
+    margin-right: 0;
+}
+
+.section_achievements h4 {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.section_achievements h5 {
+    display: block;
+    position: relative;
+    margin-top: 0;
+    margin-left: -.25em
+}
+
+.section_achievements .module {
+    max-width: 33%;
+}
+
+p,
+.content,
+.item {
     font-size: 11pt;
+    margin-bottom: .25em;
+}
+
+.contact .item {
+    font-size: 12pt;
 }

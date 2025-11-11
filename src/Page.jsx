@@ -3,7 +3,7 @@ import './styles/page.css'
 export function Item(props) {
     const item = props.item;
     return (
-        <div className="item">
+        <div className={props.className}>
             {item}
         </div>
     );
@@ -12,10 +12,10 @@ export function Item(props) {
 export function Module(props) {
     const module = props.module;
     return (
-        <div className="module">
-            <h4 className="module_title">{module.title}</h4>
-            <h5 className="module_subtitle">{module.subtitle}</h5>
-            <p className="module_content">{module.content}</p>
+        <div className={props.className}>
+            {module.title && <h4 className="title">{module.title}</h4>}
+            {module.subtitle && <h5 className="subtitle">{module.subtitle}</h5>}
+            <div className="content">{module.content}</div>
         </div>
     );
 }
@@ -23,14 +23,14 @@ export function Module(props) {
 export function Section(props) {
     const section = props.section;
     return (
-        <div className="section">
-            <div className="element section_header">
-                <h3>{section.title}</h3>
+        <div className={props.className}>
+            <div className="element header">
+                {section.title && <h3>{section.title}</h3>}
                 <div className="line"></div>
             </div>
-            <p className="section_content">
+            <div className="content">
                 {section.modules}
-            </p>
+            </div>
         </div>
     );
 }
@@ -44,7 +44,7 @@ export function Page(props) {
                     <h1>{elements.name}</h1>
                     <h2>{elements.subtitle}</h2>
                 </div>
-                <div>
+                <div className="contact">
                     {elements.contact}
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { Page, Item, Module, Section } from './Page.jsx'
 
 function PageBuilder(props) {
-    function build_content(content, path = 'root') {
+    function build_content(content, path = 'root', additionalClassNames = '') {
         //* Handle primitives
         if (typeof content !== 'object' || Array.isArray(content) === false && content === null) {
             if (typeof content === 'string') {
@@ -18,17 +18,22 @@ function PageBuilder(props) {
                 //* Type specific mapping
                 switch (obj.type) {
                     case 'section':
-                        return <Section key={key} section={build_content(obj, key)} />;
+                        if (typeof obj.title === 'string') {
+                            //? might be a cleaner way of doing this
+                            additionalClassNames = `section_${obj.title.toLowerCase()}`;
+                        }
+
+                        return <Section key={key} className={`section ${additionalClassNames}`} section={build_content(obj, key, additionalClassNames)} />;
 
                     case 'module':
                         //* Wrap primitives into module objects
                         if (typeof obj !== 'object')
                             obj = { content: obj };
 
-                        return <Module key={key} module={build_content(obj, key)} />;
+                        return <Module key={key} className={`module  ${additionalClassNames}`} module={build_content(obj, key, additionalClassNames)} />;
 
                     default:
-                        return <Item key={key} item={build_content(obj, obj)} />;
+                        return <Item key={key} className={`item  ${additionalClassNames}`} item={build_content(obj, obj, additionalClassNames)} />;
                 }
             });
         }
@@ -36,7 +41,7 @@ function PageBuilder(props) {
         //* Recurse for nested objects
         const out = {};
         Object.keys(content).forEach((k) => {
-            out[k] = build_content(content[k], `${path}.${k}`);
+            out[k] = build_content(content[k], `${path}.${k}`, additionalClassNames);
         });
 
         return out;
