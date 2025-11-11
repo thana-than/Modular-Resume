@@ -1,14 +1,21 @@
 #root {
     margin: auto;
+    --primary-color: #444444;
+    --secondary-color: #000000;
+    --tertiary-color: #aaaaaa;
+    --background-color: #ffffff;
+
+    color: var(--primary-color);
 }
 
 .page {
     font-family: 'Segoe UI';
-    background-color: white;
+    background-color: var(--background-color);
     width: 8.5in;
     height: 11in;
     margin: auto;
     padding: .25in .5in;
+    box-sizing: border-box;
 }
 
 .element {
@@ -18,12 +25,17 @@
 }
 
 .resume_header {
-    border-bottom: .2em solid black;
+    border-bottom: .2em solid var(--secondary-color);
 }
 
 .resume_body {
     display: flex;
     justify-content: space-between;
+
+    p {
+        color: var(--primary-color);
+    }
+
     align-items: flex-start;
 }
 
@@ -49,7 +61,7 @@
 }
 
 .line {
-    border-bottom: .2em solid #aaaaaa;
+    border-bottom: .2em solid var(--tertiary-color);
     margin-left: 1em;
     width: 100%;
 }
@@ -57,13 +69,49 @@
 .module {
     margin-top: .5em;
     margin-bottom: .5em;
-    margin-left: .5em;
+    margin-left: 1.5em;
+    position: relative;
 }
 
 h1 {
     text-transform: uppercase;
+    font-size: 28pt;
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 
 h2 {
+    color: var(--primary-color);
+    font-size: 18pt;
+    font-weight: normal;
+}
+
+h3 {
     text-transform: uppercase;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+h4 {
+    margin: 1em 0 .25em;
+    color: var(--primary-color);
+    font-size: 13.5pt;
+    font-style: italic;
+    display: inline-block;
+}
+
+h5 {
+    margin: 1em 0 .25em;
+    color: var(--primary-color);
+    display: inline;
+    font-size: 13.5pt;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+p {
+    margin: 0;
+    font-size: 11pt;
 }

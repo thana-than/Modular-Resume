@@ -9,7 +9,7 @@ function App() {
   const custom_content_path = './local/custom_content.json';
 
   useEffect(() => {
-    import(custom_content_path)
+    import(/* @vite-ignore */ custom_content_path)
       .then((custom_content) => {
         console.log("Using custom content at path: ", custom_content_path);
         setContent(custom_content);

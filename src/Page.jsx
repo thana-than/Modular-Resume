@@ -13,9 +13,9 @@ export function Module(props) {
     const module = props.module;
     return (
         <div className="module">
-            <div className="module_title">{module.title}</div>
-            <div className="module_title">{module.subtitle}</div>
-            <div className="module_content">{module.content}</div>
+            <h4 className="module_title">{module.title}</h4>
+            <h5 className="module_subtitle">{module.subtitle}</h5>
+            <p className="module_content">{module.content}</p>
         </div>
     );
 }
@@ -25,12 +25,12 @@ export function Section(props) {
     return (
         <div className="section">
             <div className="element section_header">
-                <h2>{section.title}</h2>
+                <h3>{section.title}</h3>
                 <div className="line"></div>
             </div>
-            <div className="section_content">
+            <p className="section_content">
                 {section.modules}
-            </div>
+            </p>
         </div>
     );
 }
@@ -42,7 +42,7 @@ export function Page(props) {
             <div className="element resume_header">
                 <div>
                     <h1>{elements.name}</h1>
-                    <h3>{elements.subtitle}</h3>
+                    <h2>{elements.subtitle}</h2>
                 </div>
                 <div>
                     {elements.contact}
