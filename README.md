@@ -1,5 +1,5 @@
 # Modular Resume
-Tools to make quick and easy tailored resumes.
+Tool to make quick and easy tailored resumes.
 
 ## Attributions
 - [React](https://react.dev/)
