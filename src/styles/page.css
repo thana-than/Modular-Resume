@@ -1,14 +1,13 @@
 #root {
     margin: auto;
+}
+
+.page {
     --primary-color: #444444;
     --secondary-color: #000000;
     --tertiary-color: #aaaaaa;
     --background-color: #ffffff;
 
-    color: var(--primary-color);
-}
-
-.page {
     font-family: 'Segoe UI';
     background-color: var(--background-color);
     width: 8.5in;
@@ -16,6 +15,7 @@
     margin: auto;
     padding: .25in .5in;
     box-sizing: border-box;
+    color: var(--primary-color);
 }
 
 a {
@@ -42,10 +42,6 @@ a {
 
 .contact .item:last-child {
     margin-bottom: 0;
-}
-
-.resume_header {
-    border-bottom: .2em solid var(--secondary-color);
 }
 
 .resume_body {
