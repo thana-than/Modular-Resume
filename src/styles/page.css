@@ -1,4 +1,5 @@
 #root {
+    /** Anything in root will be ignored in print! **/
     margin: auto;
 }
 
