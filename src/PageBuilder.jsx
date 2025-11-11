@@ -4,6 +4,9 @@ function PageBuilder(props) {
     function build_content(content, path = 'root') {
         //* Handle primitives
         if (typeof content !== 'object' || Array.isArray(content) === false && content === null) {
+            if (typeof content === 'string') {
+                return <span dangerouslySetInnerHTML={{ __html: content }} />;
+            }
             return content;
         }
 
