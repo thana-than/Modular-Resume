@@ -13,8 +13,8 @@ export function Module(props) {
     const module = props.module;
     return (
         <div className={props.className}>
-            {module.title && <h4 className="title">{module.title}</h4>}
-            {module.subtitle && <h5 className="subtitle">{module.subtitle}</h5>}
+            {module.title && <h2 className="title">{module.title}</h2>}
+            {module.subtitle && <h3 className="subtitle">{module.subtitle}</h3>}
             <div className="content">{module.content}</div>
         </div>
     );
@@ -25,11 +25,11 @@ export function Section(props) {
     return (
         <div className={props.className}>
             <div className="element header">
-                {section.title && <h3>{section.title}</h3>}
+                {section.title && <h1>{section.title}</h1>}
                 <div className="line"></div>
             </div>
             <div className="content">
-                {section.modules}
+                {section.content}
             </div>
         </div>
     );
@@ -39,21 +39,26 @@ export function Page(props) {
     const elements = props.elements;
     return (
         <div className="page">
-            <div className="element resume_header">
-                <div>
-                    <h1>{elements.name}</h1>
-                    <h2>{elements.subtitle}</h2>
+            <div className="element resume_head">
+                <div className="element section_group resume_header">
+                    {elements.head_left}
                 </div>
-                <div className="contact">
-                    {elements.contact}
+                <div className="element section_group resume_subhead">
+                    {elements.head_right}
                 </div>
             </div>
+
             <div className="element resume_body">
                 <div className="element section_group resume_side">
                     {elements.sub}
                 </div>
-                <div className="element section_group resume_main">
-                    {elements.main}
+                <div className='resume_full'>
+                    <div className="element section_group resume_main">
+                        {elements.main}
+                    </div>
+                    <div className="element section_group resume_bottom">
+                        {elements.bottom}
+                    </div>
                 </div>
             </div>
         </div>

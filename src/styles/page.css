@@ -35,16 +35,6 @@ a {
     align-items: center;
 }
 
-.contact .item {
-    font-size: 12pt;
-    text-align: right;
-    font-weight: bold;
-}
-
-.contact .item:last-child {
-    margin-bottom: 0;
-}
-
 .resume_body {
     display: flex;
     justify-content: space-between;
@@ -64,7 +54,9 @@ a {
     margin-right: -.5em;
 }
 
-.resume_main {
+.resume_full {
+    display: flex;
+    flex-direction: column;
     width: 64%;
 }
 
@@ -96,30 +88,13 @@ a {
 
 h1 {
     text-transform: uppercase;
-    font-size: 28pt;
-    color: var(--secondary-color);
-    font-weight: bold;
-    margin: 0;
-    margin-top: .5em;
-}
-
-h2 {
-    color: var(--primary-color);
-    font-size: 18pt;
-    font-weight: normal;
-    margin: 0;
-    margin-bottom: 1em;
-}
-
-h3 {
-    text-transform: uppercase;
     color: var(--secondary-color);
     font-weight: bold;
     font-size: 18pt;
     margin: .5em 0 0 0;
 }
 
-h4 {
+h2 {
     margin: 0 -.25em .25em;
     color: var(--primary-color);
     font-size: 13.5pt;
@@ -127,7 +102,7 @@ h4 {
     display: inline-block;
 }
 
-h5 {
+h3 {
     margin: 0 0 .25em;
     color: var(--primary-color);
     display: inline;
@@ -142,28 +117,28 @@ h5 {
     font-weight: bold;
 }
 
-.section_achievements .content {
+.resume_bottom .content {
     display: flex;
     flex-direction: row;
 }
 
-.section_achievements .module .content {
+.resume_bottom .module .content {
     margin-right: 0;
 }
 
-.section_achievements h4 {
+.resume_bottom h2 {
     position: relative;
     margin-bottom: 0;
 }
 
-.section_achievements h5 {
+.resume_bottom h3 {
     display: block;
     position: relative;
     margin-top: 0;
     margin-left: -.25em
 }
 
-.section_achievements .module {
+.resume_bottom .module {
     max-width: 33%;
 }
 
@@ -176,4 +151,43 @@ p,
 
 .contact .item {
     font-size: 12pt;
+}
+
+.resume_header .header,
+.resume_header .line,
+.resume_subhead .header,
+.resume_subhead .line {
+    display: none;
+}
+
+.resume_header {
+    width: 50%;
+    flex-direction: column;
+}
+
+.section_name .content {
+    text-transform: uppercase;
+    font-size: 28pt;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: 0;
+    margin-top: .5em;
+}
+
+.section_title .content {
+    color: var(--primary-color);
+    font-size: 18pt;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+.section_contact .item {
+    font-size: 12pt;
+    text-align: right;
+    font-weight: bold;
+}
+
+.section_contact .item:last-child {
+    margin-bottom: 0;
 }
