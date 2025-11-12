@@ -37,27 +37,28 @@ export function Section(props) {
 
 export function Page(props) {
     const elements = props.elements;
+    // console.log('el', elements.default[0]);
     return (
         <div className="page">
             <div className="element resume_head">
                 <div className="element section_group resume_header">
-                    {elements.head_left}
+                    {elements[0]}
                 </div>
                 <div className="element section_group resume_subhead">
-                    {elements.head_right}
+                    {elements[1]}
                 </div>
             </div>
 
             <div className="element resume_body">
                 <div className="element section_group resume_side">
-                    {elements.sub}
+                    {elements[2]}
                 </div>
                 <div className='resume_full'>
                     <div className="element section_group resume_main">
-                        {elements.main}
+                        {elements[3]}
                     </div>
                     <div className="element section_group resume_bottom">
-                        {elements.bottom}
+                        {elements[4]}
                     </div>
                 </div>
             </div>

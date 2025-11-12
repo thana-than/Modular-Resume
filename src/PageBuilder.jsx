@@ -17,6 +17,9 @@ function PageBuilder(props) {
 
                 //* Type specific mapping
                 switch (obj.type) {
+                    case 'group':
+                        return build_content(obj, key).content;
+
                     case 'section':
                         if (typeof obj.title === 'string') {
                             //? might be a cleaner way of doing this
@@ -33,7 +36,7 @@ function PageBuilder(props) {
                         return <Module key={key} className={`module  ${additionalClassNames}`} module={build_content(obj, key, additionalClassNames)} />;
 
                     default:
-                        return <Item key={key} className={`item  ${additionalClassNames}`} item={build_content(obj, obj, additionalClassNames)} />;
+                        return <Item key={key} className={`item  ${additionalClassNames}`} item={build_content(obj, key, additionalClassNames)} />;
                 }
             });
         }
@@ -47,7 +50,7 @@ function PageBuilder(props) {
         return out;
     }
 
-    let built_content = build_content(props.content);
+    let built_content = build_content(props.content.default || props.content);
 
     return (
         <Page elements={built_content} />
