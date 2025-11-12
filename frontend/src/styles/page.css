@@ -147,6 +147,7 @@ h3 {
 }
 
 p,
+li,
 .content,
 .item {
     font-size: 11pt;
@@ -188,7 +189,8 @@ p,
 }
 
 .section_contact .content {
-    font-size: 12pt;
+    margin-top: .5em;
+    margin-bottom: .5em;
     text-align: right;
     font-weight: bold;
 }
