@@ -37,7 +37,7 @@ export function Section(props) {
 
 export function Page(props) {
     const elements = props.elements;
-    // console.log('el', elements.default[0]);
+    // TODO maybe layout better?
     return (
         <div className="page">
             <div className="element resume_head">
