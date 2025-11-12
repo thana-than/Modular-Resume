@@ -2,7 +2,7 @@ import './styles/page.css'
 
 export function Item(props) {
     const item = props.item;
-    console.log(item);
+
     return (
         <div className={props.className}>
             {item.title && <h2 className="title">{item.title}</h2>}

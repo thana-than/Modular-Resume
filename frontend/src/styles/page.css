@@ -38,12 +38,12 @@ a {
 .resume_body {
     display: flex;
     justify-content: space-between;
-
-    p {
-        color: var(--primary-color);
-    }
-
     align-items: flex-start;
+}
+
+li {
+    margin-bottom: .5em;
+    list-style-type: none;
 }
 
 .resume_side {
@@ -84,6 +84,10 @@ a {
     margin-bottom: .5em;
     margin-left: 1.2em;
     position: relative;
+}
+
+.primitive {
+    margin-bottom: .5em;
 }
 
 h1 {
@@ -149,10 +153,6 @@ p,
     margin-bottom: .25em;
 }
 
-.contact .item {
-    font-size: 12pt;
-}
-
 .resume_header .header,
 .resume_header .line,
 .resume_subhead .header,
@@ -187,12 +187,8 @@ p,
     margin-bottom: 1em;
 }
 
-.section_contact .item {
+.section_contact .content {
     font-size: 12pt;
     text-align: right;
     font-weight: bold;
-}
-
-.section_contact .item:last-child {
-    margin-bottom: 0;
 }

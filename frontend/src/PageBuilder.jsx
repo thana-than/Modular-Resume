@@ -1,11 +1,20 @@
 import { Page, Item, Section } from './Page.jsx'
 
 function PageBuilder(props) {
+
+    function primitive(content) {
+        return <span dangerouslySetInnerHTML={{ __html: content }} />;
+    }
+
     function build_content(content, path = 'root') {
+        if (Array.isArray(content) && content.length === 1 && content[0].type === undefined) {
+            return build_content(content[0], path);
+        }
+
         //* Handle primitives
         if (typeof content !== 'object' || Array.isArray(content) === false && content === null) {
             if (typeof content === 'string') {
-                return <span dangerouslySetInnerHTML={{ __html: content }} />;
+                return primitive(content);
             }
             return content;
         }
@@ -27,7 +36,7 @@ function PageBuilder(props) {
                     default:
                         //* Wrap primitives into item objects
                         if (typeof obj !== 'object')
-                            obj = { content: obj }
+                            return <li key={key}>{primitive(obj)}</li>;
 
                         return <Item key={key} className={`item`} item={build_content(obj, key)} />;
                 }
