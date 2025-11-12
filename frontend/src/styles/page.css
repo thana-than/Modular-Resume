@@ -24,7 +24,7 @@ a {
     text-decoration: inherit;
 }
 
-.module .content a {
+.item .content a {
     font-style: italic;
     color: var(--secondary-color)
 }
@@ -79,7 +79,7 @@ a {
     width: 100%;
 }
 
-.module {
+.item {
     margin-top: .5em;
     margin-bottom: .5em;
     margin-left: 1.2em;
@@ -122,7 +122,7 @@ h3 {
     flex-direction: row;
 }
 
-.resume_bottom .module .content {
+.resume_bottom .item .content {
     margin-right: 0;
 }
 
@@ -138,7 +138,7 @@ h3 {
     margin-left: -.25em
 }
 
-.resume_bottom .module {
+.resume_bottom .item {
     max-width: 33%;
 }
 
@@ -158,6 +158,11 @@ p,
 .resume_subhead .header,
 .resume_subhead .line {
     display: none;
+}
+
+.resume_head a {
+    font-style: inherit !important;
+    color: inherit !important;
 }
 
 .resume_header {

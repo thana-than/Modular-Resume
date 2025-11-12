@@ -2,20 +2,12 @@ import './styles/page.css'
 
 export function Item(props) {
     const item = props.item;
+    console.log(item);
     return (
         <div className={props.className}>
-            {item}
-        </div>
-    );
-}
-
-export function Module(props) {
-    const module = props.module;
-    return (
-        <div className={props.className}>
-            {module.title && <h2 className="title">{module.title}</h2>}
-            {module.subtitle && <h3 className="subtitle">{module.subtitle}</h3>}
-            <div className="content">{module.content}</div>
+            {item.title && <h2 className="title">{item.title}</h2>}
+            {item.subtitle && <h3 className="subtitle">{item.subtitle}</h3>}
+            {item.content && <div className="content">{item.content}</div>}
         </div>
     );
 }

@@ -1,7 +1,7 @@
-import { Page, Item, Module, Section } from './Page.jsx'
+import { Page, Item, Section } from './Page.jsx'
 
 function PageBuilder(props) {
-    function build_content(content, path = 'root', additionalClassNames = '') {
+    function build_content(content, path = 'root') {
         //* Handle primitives
         if (typeof content !== 'object' || Array.isArray(content) === false && content === null) {
             if (typeof content === 'string') {
@@ -21,22 +21,15 @@ function PageBuilder(props) {
                         return build_content(obj, key).content;
 
                     case 'section':
-                        if (typeof obj.title === 'string') {
-                            //? might be a cleaner way of doing this
-                            additionalClassNames = `section_${obj.title.toLowerCase()}`;
-                        }
-
-                        return <Section key={key} className={`section ${additionalClassNames}`} section={build_content(obj, key, additionalClassNames)} />;
-
-                    case 'module':
-                        //* Wrap primitives into module objects
-                        if (typeof obj !== 'object')
-                            obj = { content: obj };
-
-                        return <Module key={key} className={`module  ${additionalClassNames}`} module={build_content(obj, key, additionalClassNames)} />;
+                        const className = typeof obj.title === 'string' ? `section_${obj.title.toLowerCase()}` : '';
+                        return <Section key={key} className={`section ${className}`} section={build_content(obj, key)} />;
 
                     default:
-                        return <Item key={key} className={`item  ${additionalClassNames}`} item={build_content(obj, key, additionalClassNames)} />;
+                        //* Wrap primitives into item objects
+                        if (typeof obj !== 'object')
+                            obj = { content: obj }
+
+                        return <Item key={key} className={`item`} item={build_content(obj, key)} />;
                 }
             });
         }
@@ -44,7 +37,7 @@ function PageBuilder(props) {
         //* Recurse for nested objects
         const out = {};
         Object.keys(content).forEach((k) => {
-            out[k] = build_content(content[k], `${path}.${k}`, additionalClassNames);
+            out[k] = build_content(content[k], `${path}.${k}`);
         });
 
         return out;
