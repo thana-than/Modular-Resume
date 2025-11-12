@@ -10,7 +10,7 @@ db = Database()
 
 web = SimpleNamespace(
     host=os.getenv("WEB_HOST", "localhost"),
-    port=int(os.getenv("WEB_PORT", 80))
+    port=int(os.getenv("WEB_PORT", 8080))
 )
 
 @asynccontextmanager
