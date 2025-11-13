@@ -7,7 +7,9 @@ load_dotenv()
 
 if __name__ == "__main__":
     backend = SimpleNamespace(
-        host=os.getenv("BACKEND_HOST", "localhost"),
-        port=int(os.getenv("BACKEND_PORT", 8000))
+        host=os.getenv("WEB_HOST", "0.0.0.0"),
+        port=int(os.getenv("WEB_PORT", 8080))
     )
-    uvicorn.run("app.api:app", **vars(backend), reload=True)
+    env = os.getenv("ENV", "production").lower()
+    reload = env in ("dev", "development")
+    uvicorn.run("app.api:app", **vars(backend), reload=reload)

@@ -5,3 +5,8 @@ Tool to make quick and easy tailored resumes.
 - [React](https://react.dev/)
 - [Vite - React Compiler](https://vite.dev/)
 - [react-to-print](https://www.npmjs.com/package/react-to-print)
+- [uvicorn](https://uvicorn.dev/)
+- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [psycopg2](https://pypi.org/project/psycopg2/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
