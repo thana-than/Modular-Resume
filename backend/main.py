@@ -12,4 +12,4 @@ if __name__ == "__main__":
     )
     env = os.getenv("ENV", "production").lower()
     reload = env in ("dev", "development")
-    uvicorn.run("app.api:app", **vars(backend), reload=reload)
+    uvicorn.run("app.app:app", **vars(backend), reload=reload)
