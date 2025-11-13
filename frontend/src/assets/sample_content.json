@@ -5,12 +5,138 @@
             {
                 "type": "section",
                 "title": "Name",
-                "content": ""
+                "content": [
+                    "Resume"
+                ]
             },
             {
                 "type": "section",
                 "title": "Title",
-                "content": ""
+                "content": [
+                    "Example"
+                ]
+            }
+        ]
+    },
+    {
+        "type": "group",
+        "content": [
+            {
+                "type": "section",
+                "title": "Contact",
+                "content": [
+                    "email@provider.com",
+                    "(555) 555-5555",
+                    "<a href='https://github.com/thana-than/Modular-Resume'>github.com/thana-than/Modular-Resume</a>"
+                ]
+            }
+        ]
+    },
+    {
+        "type": "group",
+        "content": [
+            {
+                "type": "section",
+                "title": "Summary",
+                "content": [
+                    {
+                        "type": "item",
+                        "content": [
+                            "Modular resume allows the user to create items for their resume and then piece them together on the fly."
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Features",
+                "content": [
+                    {
+                        "type": "item",
+                        "content": [
+                            "PostgreSQL database.",
+                            "Docker integration.",
+                            "Print to PDF."
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Coding",
+                "content": [
+                    {
+                        "type": "item",
+                        "content": [
+                            "CSS, HTML, JavaScript, Python, React (Vite)"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "group",
+        "content": [
+            {
+                "type": "section",
+                "title": "Experience",
+                "content": [
+                    {
+                        "type": "item",
+                        "title": "Experience Listing Here",
+                        "subtitle": "20XX -",
+                        "content": [
+                            "Your current job could exist here."
+                        ]
+                    },
+                    {
+                        "type": "item",
+                        "title": "Experience Listing Here",
+                        "subtitle": "20XX - 20XX",
+                        "content": [
+                            "Previous job listing here."
+                        ]
+                    },
+                    {
+                        "type": "item",
+                        "title": "Experience Listing Here",
+                        "subtitle": "20XX - 20XX",
+                        "content": [
+                            "Previous job listing here."
+                        ]
+                    },
+                    {
+                        "type": "item",
+                        "title": "Experience Listing Here",
+                        "subtitle": "20XX - 20XX",
+                        "content": [
+                            "Previous job listing here."
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Education",
+                "content": [
+                    {
+                        "type": "item",
+                        "title": "Education Listing Here",
+                        "subtitle": "20XX - 20XX",
+                        "content": [
+                            "Bachelors of Cool - At the cool school</br>Minored in being rad</br>Graduated with distinction"
+                        ]
+                    },
+                    {
+                        "type": "item",
+                        "title": "Education Listing Here",
+                        "subtitle": "20XX - 20XX",
+                        "content": [
+                            "Graduated secondary education just barely."
+                        ]
+                    }
+                ]
             }
         ]
     }

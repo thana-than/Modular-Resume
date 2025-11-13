@@ -6,15 +6,15 @@ import fallback_content from "./assets/sample_content.json";
 function App() {
   const componentRef = useRef(null);
   const [content, setContent] = useState(fallback_content);
-  const custom_content_path = './local/custom_content.json';
+  // const custom_content_path = './local/custom_content.json';
 
-  useEffect(() => {
-    import(/* @vite-ignore */ custom_content_path)
-      .then((custom_content) => {
-        console.log("Using custom content at path: ", custom_content_path);
-        setContent(custom_content);
-      })
-  }, []);
+  // useEffect(() => {
+  //   import(/* @vite-ignore */ custom_content_path)
+  //     .then((custom_content) => {
+  //       console.log("Using custom content at path: ", custom_content_path);
+  //       setContent(custom_content);
+  //     })
+  // }, []);
 
   const reactToPrintContent = () => {
     return componentRef.current;
