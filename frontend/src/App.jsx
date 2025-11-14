@@ -3,19 +3,14 @@ import { useReactToPrint } from "react-to-print";
 import { useRef, useState, useEffect } from "react";
 import fallback_content from "./assets/sample_content.json";
 import { populate } from "./request.js"
+import { Button } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
+import '@mantine/core/styles.css';
+import "./styles/app.css"
 
 function App() {
   const componentRef = useRef(null);
   const [content, setContent] = useState(fallback_content);
-  // const custom_content_path = './local/custom_content.json';
-
-  // useEffect(() => {
-  //   import(/* @vite-ignore */ custom_content_path)
-  //     .then((custom_content) => {
-  //       console.log("Using custom content at path: ", custom_content_path);
-  //       setContent(custom_content);
-  //     })
-  // }, []);
 
   const reactToPrintContent = () => {
     return componentRef.current;
@@ -55,12 +50,18 @@ function App() {
   populate(testjson)
 
   return (
-    <div>
-      <div ref={componentRef}>
-        <PageBuilder content={content} />
+    <MantineProvider defaultColorScheme="dark">
+      <div className="app_layout">
+        <div className="app_panel_resume">
+          <div ref={componentRef}>
+            <PageBuilder content={content} />
+          </div>
+        </div>
+        <div className="app_panel_options">
+          <Button onClick={() => handlePrint(reactToPrintContent)}>Print</Button>
+        </div>
       </div>
-      <button onClick={() => handlePrint(reactToPrintContent)}>Print</button>
-    </div>
+    </MantineProvider>
   )
 }
 

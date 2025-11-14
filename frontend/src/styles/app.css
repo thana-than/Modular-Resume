@@ -1,0 +1,8 @@
+.app_layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.app_panel_options {
+    margin-left: 10em;
+}

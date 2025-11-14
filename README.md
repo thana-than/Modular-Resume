@@ -10,3 +10,4 @@ Tool to make quick and easy tailored resumes.
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [psycopg2](https://pypi.org/project/psycopg2/)
 - [python-dotenv](https://pypi.org/project/python-dotenv/)
+- [Mantine](https://mantine.dev/)
