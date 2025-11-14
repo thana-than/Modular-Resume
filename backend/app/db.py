@@ -45,7 +45,28 @@ class Database:
         if isinstance(ids, int):
             ids = [ids]
         id_str = ", ".join([str(id) for id in ids])
-        command = f'SELECT * FROM {self.sql_table} WHERE id IN ({id_str})'
+        order_array = "ARRAY[" + ", ".join([str(id) for id in ids]) + "]"
+        command = f"""
+            SELECT *
+            FROM {self.sql_table}
+            WHERE id IN ({id_str})
+            ORDER BY array_position({order_array}, id)
+        """
+        items = self.execute(command)
+        return self.validate(items)
+    
+    def get_by_keys(self, keys):
+        """Get items by their IDs"""
+        if isinstance(keys, str):
+            keys = [keys]
+        key_str = ", ".join([f'\'{key}\'''' for key in keys])
+        order_array = "ARRAY[" + ", ".join([f"'{key}'" for key in keys]) + "]"
+        command = f"""
+            SELECT *
+            FROM {self.sql_table}
+            WHERE key IN ({key_str})
+            ORDER BY array_position({order_array}, key)
+        """
         items = self.execute(command)
         return self.validate(items)
 
@@ -85,10 +106,23 @@ class Database:
                 if isinstance(v, (dict, list)):
                     result[k] = self.populate_content(v)
 
+            keys = result.get('key')
+            if isinstance(keys, str):
+                keys = [keys]
+            if isinstance(keys, (list, tuple)) and keys:
+                rows = self.get_by_keys(keys) or []
+                items = []
+                for row in rows:
+                    # Convert row to dictionary and remove any null entries
+                    item = {key: value for key, value in dict(row).items() if value is not None}
+                    items.append(item)
+                result.pop('key', None) # Remove old key array
+                result['content'] = items
+                print(result['content'])
+
             ids = result.get('id')
             if isinstance(ids, int):
                 ids = [ids]
-
             if isinstance(ids, (list, tuple)) and ids:
                 rows = self.get_by_ids(ids) or []
                 items = []

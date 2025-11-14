@@ -11,7 +11,7 @@ import { XMLValidator } from "fast-xml-parser";
 export default function XmlEditor({
     value = "<root></root>",
     onChange = () => { },
-    height = "300px",
+    height = "11in",
 }) {
     const [text, setText] = useState(value);
     const [error, setError] = useState(null);
@@ -36,6 +36,7 @@ export default function XmlEditor({
     return (
         <div>
             <CodeMirror
+                className="codemirror"
                 value={text}
                 height={height}
                 extensions={[xml()]}

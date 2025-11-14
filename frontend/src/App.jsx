@@ -60,8 +60,8 @@ function App() {
         </div>
         <div className="app_panel_options">
           <XmlEditor value={editorText} onChange={setEditorText} height="350px" />
-          <Button onClick={handleGenerate}>Generate</Button>
-          <Button className="right-align" onClick={() => handlePrint(reactToPrintContent)}>Print</Button>
+          <Button onClick={() => handlePrint(reactToPrintContent)}>Print</Button>
+          <Button className="right-align" onClick={handleGenerate}>Generate</Button>
         </div>
       </div>
     </MantineProvider>
