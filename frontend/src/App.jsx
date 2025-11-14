@@ -3,7 +3,7 @@ import { useReactToPrint } from "react-to-print";
 import { useRef, useState, useEffect } from "react";
 import fallback_content from "./assets/sample_content.json";
 import { populate } from "./request.js"
-import { Button } from '@mantine/core';
+import { Button, Tabs } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import "./styles/app.css"
@@ -11,6 +11,7 @@ import "./styles/app.css"
 function App() {
   const componentRef = useRef(null);
   const [content, setContent] = useState(fallback_content);
+  const [structure, setStructure] = useState(null);
 
   const reactToPrintContent = () => {
     return componentRef.current;
@@ -21,33 +22,26 @@ function App() {
     //fonts: CUSTOM_FONTS
   });
 
-  const testjson = {
-    "default":
-      [
-        {
-          "type": "group",
-          "content": [
-            {
-              "type": "section",
-              "title": "Name",
-              "ids": [
-                0, 1, 2
-              ]
-            },
-            {
-              "type": "section",
-              "title": "Title",
-              "ids": [
-                4, 3, 5
-              ]
-            }
-          ]
-        }
-      ]
-  };
+  useEffect(() => {
+    refreshContent();
+  }, [structure]);
 
-  console.log("populating");
-  populate(testjson)
+  const refreshContent = () => {
+    if (!structure)
+      return;
+    let mounted = true;
+    (async () => {
+      try {
+        console.log(fallback_content);
+        const res = await populate(structure);
+        if (!mounted) return;
+        setContent(res);
+      } catch (err) {
+        console.error("populate failed", err);
+      }
+    })();
+    return () => { mounted = false; };
+  };
 
   return (
     <MantineProvider defaultColorScheme="dark">
