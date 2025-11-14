@@ -4,6 +4,7 @@ WORKDIR /frontend
 COPY frontend/package*.json ./
 RUN npm install
 COPY frontend/ .
+ENV VITE_BACKEND_URL="/api"
 RUN npm run build
 
 # Build Backend

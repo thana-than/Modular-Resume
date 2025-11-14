@@ -2,6 +2,7 @@ import PageBuilder from "./PageBuilder";
 import { useReactToPrint } from "react-to-print";
 import { useRef, useState, useEffect } from "react";
 import fallback_content from "./assets/sample_content.json";
+import { populate } from "./request.js"
 
 function App() {
   const componentRef = useRef(null);
@@ -25,12 +26,40 @@ function App() {
     //fonts: CUSTOM_FONTS
   });
 
+  const testjson = {
+    "default":
+      [
+        {
+          "type": "group",
+          "content": [
+            {
+              "type": "section",
+              "title": "Name",
+              "ids": [
+                0, 1, 2
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Title",
+              "ids": [
+                4, 3, 5
+              ]
+            }
+          ]
+        }
+      ]
+  };
+
+  console.log("populating");
+  populate(testjson)
+
   return (
     <div>
-      <button onClick={() => handlePrint(reactToPrintContent)}>Print</button>
       <div ref={componentRef}>
         <PageBuilder content={content} />
       </div>
+      <button onClick={() => handlePrint(reactToPrintContent)}>Print</button>
     </div>
   )
 }
