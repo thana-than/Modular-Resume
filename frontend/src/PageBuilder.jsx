@@ -7,12 +7,12 @@ function PageBuilder(props) {
     }
 
     function build_content(content, path = 'root') {
-        if (Array.isArray(content) && content.length === 1 && content[0].type === undefined) {
+        if (Array.isArray(content) && content.length === 1 && content[0].type === undefined && typeof content[0] !== 'object') {
             return build_content(content[0], path);
         }
 
         //* Handle primitives
-        if (typeof content !== 'object' || Array.isArray(content) === false && content === null) {
+        if (typeof content !== 'object' || content === null) {
             if (typeof content === 'string') {
                 return primitive(content);
             }
@@ -27,7 +27,7 @@ function PageBuilder(props) {
                 //* Type specific mapping
                 switch (obj.type) {
                     case 'group':
-                        return build_content(obj, key).content;
+                        return build_content(obj, key)['content'];
 
                     case 'section':
                         const className = typeof obj.title === 'string' ? `section_${obj.title.toLowerCase()}` : '';

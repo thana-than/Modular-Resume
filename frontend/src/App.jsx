@@ -3,8 +3,10 @@ import { useReactToPrint } from "react-to-print";
 import { useRef, useState, useEffect } from "react";
 import fallback_content from "./assets/sample_content.json";
 import { populate } from "./request.js"
-import { Button, Tabs } from '@mantine/core';
+import { Button } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
+import XmlEditor from "./XmlEditor.jsx";
+import XmlToJson from "./XmlToJson.js";
 import '@mantine/core/styles.css';
 import "./styles/app.css"
 
@@ -12,6 +14,7 @@ function App() {
   const componentRef = useRef(null);
   const [content, setContent] = useState(fallback_content);
   const [structure, setStructure] = useState(null);
+  const [editorText, setEditorText] = useState('<resume>\n\n</resume>');
 
   const reactToPrintContent = () => {
     return componentRef.current;
@@ -43,6 +46,10 @@ function App() {
     return () => { mounted = false; };
   };
 
+  const handleGenerate = () => {
+    setStructure(XmlToJson(editorText));
+  }
+
   return (
     <MantineProvider defaultColorScheme="dark">
       <div className="app_layout">
@@ -52,7 +59,9 @@ function App() {
           </div>
         </div>
         <div className="app_panel_options">
-          <Button onClick={() => handlePrint(reactToPrintContent)}>Print</Button>
+          <XmlEditor value={editorText} onChange={setEditorText} height="350px" />
+          <Button onClick={handleGenerate}>Generate</Button>
+          <Button className="right-align" onClick={() => handlePrint(reactToPrintContent)}>Print</Button>
         </div>
       </div>
     </MantineProvider>

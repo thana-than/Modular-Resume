@@ -42,6 +42,8 @@ class Database:
 
     def get_by_ids(self, ids):
         """Get items by their IDs"""
+        if isinstance(ids, int):
+            ids = [ids]
         id_str = ", ".join([str(id) for id in ids])
         command = f'SELECT * FROM {self.sql_table} WHERE id IN ({id_str})'
         items = self.execute(command)
@@ -78,7 +80,15 @@ class Database:
         if isinstance(node, dict):
             result = dict(node)
 
-            ids = result.get('ids')
+            # Recursively fetch content
+            for k, v in list(result.items()):
+                if isinstance(v, (dict, list)):
+                    result[k] = self.populate_content(v)
+
+            ids = result.get('id')
+            if isinstance(ids, int):
+                ids = [ids]
+
             if isinstance(ids, (list, tuple)) and ids:
                 rows = self.get_by_ids(ids) or []
                 items = []
@@ -86,13 +96,9 @@ class Database:
                     # Convert row to dictionary and remove any null entries
                     item = {key: value for key, value in dict(row).items() if value is not None}
                     items.append(item)
-                result.pop('ids', None) # Remove old id array
+                result.pop('id', None) # Remove old id array
                 result['content'] = items
-
-            # Recursively fetch content
-            for k, v in list(result.items()):
-                if isinstance(v, (dict, list)):
-                    result[k] = self.populate_content(v)
+                print(result['content'])
 
             return result
 

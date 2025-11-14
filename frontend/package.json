@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-xml": "^6.1.0",
     "@mantine/core": "^8.3.7",
     "@mantine/hooks": "^8.3.7",
+    "@uiw/react-codemirror": "^4.25.3",
+    "fast-xml-parser": "^5.3.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-to-print": "^3.2.0"

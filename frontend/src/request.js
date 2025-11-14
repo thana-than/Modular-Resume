@@ -8,6 +8,6 @@ export const populate = async (structure) => {
         body: JSON.stringify(structure)
     });
     const json = await response.json();
-    console.log("json", json);
+    console.log("json", JSON.stringify(json, null, 4));
     return json;
 }
