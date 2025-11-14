@@ -1,0 +1,22 @@
+.app_layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.app_panel_resume {
+    margin: 2em 10em;
+}
+
+.app_panel_options {
+    margin: 2em 10em;
+    width: 8.5in;
+}
+
+.right-align {
+    float: right;
+}
+
+.cm-editor {
+    height: 10.5in;
+}
