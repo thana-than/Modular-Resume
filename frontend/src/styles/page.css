@@ -172,6 +172,10 @@
     color: inherit !important;
 }
 
+.resume_head {
+    height: 90pt;
+}
+
 .resume_header {
     width: 50%;
     flex-direction: column;
